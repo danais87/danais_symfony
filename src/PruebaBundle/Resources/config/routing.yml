@@ -1,0 +1,48 @@
+prueba_categorias:
+    resource: "@PruebaBundle/Resources/config/routing/categorias.yml"
+    prefix:   /categorias
+
+prueba_homepage:
+    path:     /
+    defaults: { _controller: PruebaBundle:Default:index }
+
+
+prueba_nombre:
+    path:     /nombre/{nPila}
+    defaults: { _controller: PruebaBundle:Default:nombre }
+
+all_eventos:
+    path:     /eventos/all
+    defaults: { _controller: PruebaBundle:Eventos:all }
+
+create_eventos:
+    path:     /eventos/create
+    defaults: { _controller: PruebaBundle:Eventos:create }
+
+update_eventos:
+    path:     /eventos/update/{id}
+    defaults: { _controller: PruebaBundle:Eventos:update }
+
+nuevo_eventos:
+    path:     /eventos/nuevo
+    defaults: { _controller: PruebaBundle:Eventos:nuevo }
+
+
+nuevo_eventos_Cat:
+    path:     /eventos/nuevoConCat
+    defaults: { _controller: PruebaBundle:Eventos:nuevoConCat }
+
+exito_eventos:
+    path:     /eventos/exitoEvento
+    defaults: { _controller: PruebaBundle:Eventos:exitoEvento }
+
+
+api_evento:
+    path:     /api/evento/{nombre}
+    defaults: { _controller: PruebaBundle:Api:evento,nombre:"Sin definir" }
+    methods: [GET]
+
+api_evento_crear:
+    path:     /api/evento
+    defaults: { _controller: PruebaBundle:Api:crearEvento }
+    methods: [POST]

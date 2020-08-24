@@ -1,0 +1,15 @@
+log:
+    resource: '@LogBundle/Resources/config/routing.yml'
+    prefix:   /log
+
+prueba:
+    resource: '@PruebaBundle/Resources/config/routing.yml'
+    prefix:   /prueba
+
+categorias:
+    resource: '@PruebaBundle/Resources/config/routing/categorias.yml'
+    prefix:   /categorias
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
