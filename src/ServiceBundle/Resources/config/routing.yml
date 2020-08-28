@@ -1,0 +1,11 @@
+service_photo:
+    resource: "@ServiceBundle/Resources/config/routing/photo.yml"
+    prefix:   /photo
+
+service_impression:
+    resource: "@ServiceBundle/Resources/config/routing/impression.yml"
+    prefix:   /impression
+
+service_homepage:
+    path:     /
+    defaults: { _controller: ServiceBundle:Default:index }

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Photos list</h1>
+    <ul>
+        <li>
+            <img class="img-fluid" src="{{asset(img~url)}}" alt="">
+        </li>
+    </ul>
+{% endblock %}

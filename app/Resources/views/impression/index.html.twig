@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Impressions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Page</th>
+                <th>Ipaddress</th>
+                <th>Createdat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for impression in impressions %}
+            <tr>
+                <td><a href="{{ path('impression_show', { 'id': impression.id }) }}">{{ impression.id }}</a></td>
+                <td>{{ impression.page }}</td>
+                <td>{{ impression.ipAddress }}</td>
+                <td>{% if impression.createdAt %}{{ impression.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('impression_show', { 'id': impression.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('impression_edit', { 'id': impression.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('impression_new') }}">Create a new impression</a>
+        </li>
+    </ul>
+{% endblock %}

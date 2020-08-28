@@ -1,15 +1,16 @@
-log:
-    resource: '@LogBundle/Resources/config/routing.yml'
-    prefix:   /log
+service:
+    resource: '@ServiceBundle/Resources/config/routing.yml'
+    prefix:   /service
 
-prueba:
-    resource: '@PruebaBundle/Resources/config/routing.yml'
-    prefix:   /prueba
+photo:
+    resource: '@ServiceBundle/Resources/config/routing/photo.yml'
+    prefix:   /photo
 
-categorias:
-    resource: '@PruebaBundle/Resources/config/routing/categorias.yml'
-    prefix:   /categorias
+impression:
+    resource: '@ServiceBundle/Resources/config/routing/impression.yml'
+    prefix:   /impression
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+

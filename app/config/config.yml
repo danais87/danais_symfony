@@ -2,14 +2,14 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@PruebaBundle/Resources/config/services.yml" }
-    - { resource: "@LogBundle/Resources/config/services.yml" }
+    - { resource: "@ServiceBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-
+    img_directorio: "%kernel.project_dir%/web/uploads"
+    
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
@@ -32,18 +32,18 @@ framework:
     assets: ~
     php_errors:
         log: true
-    templating:
-        engines: ['twig']    
 
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        img: "uploads/"
 
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: pdo_pgsql
         host: '%database_host%'
         port: '%database_port%'
         dbname: '%database_name%'
@@ -56,6 +56,10 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #path: '%database_path%'
+        types:
+            uuid_binary:  Ramsey\Uuid\Doctrine\UuidBinaryType
+        mapping_types:
+            uuid_binary: binary
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
